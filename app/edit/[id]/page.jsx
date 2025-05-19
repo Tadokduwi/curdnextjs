@@ -18,7 +18,7 @@ function EditPostPage({ params }) {
 
     const getPostById = async (id) => {
         try {
-            const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+            const res = await fetch(`https://curdnextjs-gules.vercel.app/api/posts/${id}`, {
                 method: "GET",
                 caches: "no-store"
             })
