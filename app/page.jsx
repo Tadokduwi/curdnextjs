@@ -13,7 +13,7 @@ export default function Home() {
 
   const getPosts = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/posts", {
+      const res = await fetch("https://curdnextjs-gules.vercel.app/api/posts", {
         method: "GET",
         cache: "no-store"
       })
