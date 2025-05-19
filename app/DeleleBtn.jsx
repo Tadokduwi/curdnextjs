@@ -8,7 +8,7 @@ function DeleleBtn({ id }) {
     const confirmed = confirm("Are you sure?")
 
     if (confirmed) {
-      const res = await fetch(`http://localhost:3000/api/posts?id=${id}`, {
+      const res = await fetch(`https://curdnextjs-gules.vercel.app/api/posts?id=${id}`, {
         method: "DELETE",
       })
 
