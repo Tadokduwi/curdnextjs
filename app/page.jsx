@@ -37,32 +37,36 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="container mx-auto my-3">
-      <h1>NectJs CRUD + MongoDB</h1>
-      <hr className="my-3" />
-      <button className="bg-green-500 p-3 text-white rounded">
-        <Link href="/create">Create Post</Link>
-      </button>
-      <div className="grid grid-cols-4 mt-3 gap-5">
-        {postData && postData.length > 0 ? (
-          postData.map(val => (
-            <div key={val._id} className="shadow-xl my-10 p-10 rounded-xl">
-              <h4 className="my-2">{val.title}</h4>
-              <img src={val.img} alt="" width={300}/>
-              <p>{val.content}</p>
-              <div className="mt-5">
-                <Link className="bg-gray-500 text-white border py-2 px-3 rounded-md text-lg" href={`/edit/${val._id}`}>Edit</Link>
-                <DeleleBtn id={val._id}/>
-              </div>
-            </div>
-          )
-          )
-        ) : (
-          <p className="bg-gray-300 p-3 my-3">
-            You do not have any posts yet
-          </p>
-        )}
-      </div>
-    </main>
+<main className="container mx-auto my-3">
+  <h1 className="text-2xl font-bold">Next.js CRUD + MongoDB</h1>
+  <hr className="my-3" />
+  <button className="bg-green-500 p-3 text-white rounded">
+    <Link href="/create">Create Post</Link>
+  </button>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-5 gap-5">
+    {postData && postData.length > 0 ? (
+      postData.map(val => (
+        <div key={val._id} className="shadow-xl p-6 rounded-xl bg-white">
+          <h4 className="text-lg font-semibold mb-2">{val.title}</h4>
+          <img src={val.img} alt={val.title} className="w-full h-auto rounded" />
+          <p className="mt-2 text-gray-700">{val.content}</p>
+          <div className="mt-4 flex gap-2">
+            <Link
+              className="bg-gray-500 text-white px-4 py-2 rounded-md text-sm"
+              href={`/edit/${val._id}`}
+            >
+              Edit
+            </Link>
+            <DeleleBtn id={val._id} />
+          </div>
+        </div>
+      ))
+    ) : (
+      <p className="bg-gray-300 p-3 my-3">You do not have any posts yet</p>
+    )}
+  </div>
+</main>
+
   );
 }
