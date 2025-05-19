@@ -21,7 +21,7 @@ function CreatePostPage() {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/posts", {
+      const res = await fetch("https://curdnextjs-gules.vercel.app/api/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
